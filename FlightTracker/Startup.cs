@@ -29,13 +29,7 @@ namespace FlightTracker
 
 
 
-            /*services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });*/
-
+           
             services.AddDbContext<DataContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
 
@@ -63,7 +57,7 @@ namespace FlightTracker
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=FlightTracker}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

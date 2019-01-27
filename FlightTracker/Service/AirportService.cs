@@ -13,6 +13,8 @@ namespace FlightTracker.Service
     {
         private readonly DataContext _context;
 
+        //POUR UN TEST Y'A CERTAINS DETAILS QUE J'AI HOMI COMME LA GESTION DES EXCEPTIONS
+
         public AirportService(DataContext context) {
             this._context = context;
         }

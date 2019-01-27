@@ -27,6 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Service\" />
-    <Folder Include="Views\FlightTracker\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
 </Project>

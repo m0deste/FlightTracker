@@ -12,6 +12,7 @@ namespace FlightTracker.Service
     public class PlaneService : IPlaneRepository
     {
         private readonly DataContext _context;
+        //POUR UN TEST Y'A CERTAINS DETAILS QUE J'AI HOMI COMME LA GESTION DES EXCEPTIONS
 
         public PlaneService(DataContext context)
         {

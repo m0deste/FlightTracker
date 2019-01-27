@@ -11,6 +11,7 @@ namespace FlightTracker.Service
 {
     public class FlightService : IFlightRepository
     {
+        //POUR UN TEST Y'A CERTAINS DETAILS QUE J'AI HOMI COMME LA GESTION DES EXCEPTIONS
 
         private readonly DataContext _context;
 
