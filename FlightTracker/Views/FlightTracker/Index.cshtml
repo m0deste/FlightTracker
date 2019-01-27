@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FlightTracker.Models.ListFlightViewModel>
+
+@{
+    ViewData["Title"] = "Liste des vols";
+}
+
+<h2>Liste des aéroports</h2>
+
+<p>
+    <a asp-action="AddFlight">Ajouter un nouveau vol</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origin.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination.Name)
+            </td>
+
+            <td>
+                <a asp-action="EditFlight" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-action="DetailsFlight" asp-route-id="@item.Id">Afficher</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model FlightTracker.Metier.Entities.Plane
+
+@{
+    ViewData["Title"] = "Ajout d'un avion";
+}
+
+<h4>Avion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPlane">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nom</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakeoffTime" class="control-label">Temps de decollage en Minute</label>
+                <input asp-for="TakeoffTime" min="0" class="form-control" />
+                <span asp-validation-for="TakeoffTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakeoffEffort" class="control-label">Effort de decollage</label>
+                <input asp-for="TakeoffEffort" class="form-control" />
+                <span asp-validation-for="TakeoffEffort" min="0" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FuelConsumption" class="control-label">Consommation de carburant par distance en KM</label>
+                <input asp-for="FuelConsumption" min="0" class="form-control" />
+                <span asp-validation-for="FuelConsumption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ajouter" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PlaneList">retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

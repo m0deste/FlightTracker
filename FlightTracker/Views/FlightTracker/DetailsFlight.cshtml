@@ -1,0 +1,30 @@
+﻿@model FlightTracker.Models.FlightDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details du vol";
+}
+
+<h2>Résumé du vol</h2>
+
+<h4>Vol</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <label>DISTANCE DU TRAJET(KM): <b style="color:red;"> @Html.DisplayFor(model => model.Distance) KM</b></label>
+        <label>QUANTITE DE CARBURANT NECESSAIRE:  <b style="color:red;"> @Html.DisplayFor(model => model.FuelQuantity) L</b></label>
+        <hr />
+        <h5 style="color:red;">AEROPORT DE PROVENANCE</h5>
+        <label>NOM: <b style="color:red;"> @Html.DisplayFor(model => model.Origin.Name) </b></label>
+        <label>COORDONNEES GPS(LATITUDE et LONGITUDE): <b style="color:red;"> @Html.DisplayFor(model => model.Origin.Latitude), @Html.DisplayFor(model => model.Origin.Longitude)</b></label>
+        <hr />
+        <h5 style="color:red;">AEROPORT DE DESTINATION</h5>
+        <label>NOM: <b style="color:red;"> @Html.DisplayFor(model => model.Destination.Name) </b></label>
+        <label>COORDONNEES GPS(LATITUDE et LONGITUDE): <b style="color:red;"> @Html.DisplayFor(model => model.Destination.Latitude), @Html.DisplayFor(model => model.Destination.Longitude)</b></label>
+        <hr />
+        <h5 style="color:red;">AVION</h5>
+        <label>NOM: <b> @Html.DisplayFor(model => model.Plane.Name) </b></label>
+        <label>Temps de decollage: <b style="color:red;"> @Html.DisplayFor(model => model.Plane.TakeoffTime) </b></label>
+        <label>Effort de decollage: <b style="color:red;"> @Html.DisplayFor(model => model.Plane.TakeoffEffort) </b></label>
+        <label>Consommation carburant/KM: <b style="color:red;"> @Html.DisplayFor(model => model.Plane.FuelConsumption) L</b></label>
+    </div>
+</div>

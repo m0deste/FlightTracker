@@ -1,0 +1,53 @@
+﻿@model FlightTracker.Metier.Entities.Flight
+@{
+    ViewData["Title"] = "Modification de vol";
+}
+
+<h2>Modification</h2>
+
+<h4>Vol</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditFlight">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Origin" class="control-label">Provenance</label>
+                <select asp-for="Origin"
+                        asp-items="@(new SelectList(ViewBag.AirportList,"Id","Name"))" class="form-control">
+                    <option>Choisir...</option>
+                </select>
+                <span asp-validation-for="Origin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label">Destination</label>
+                <select asp-for="Destination"
+                        asp-items="@(new SelectList(ViewBag.AirportList,"Id","Name"))" class="form-control">
+                    <option>Choisir...</option>
+                </select>
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plane" class="control-label">Avion</label>
+                <select asp-for="Plane"
+                        asp-items="@(new SelectList(ViewBag.PlaneList,"Id","Name"))" class="form-control">
+                    <option>Choisir...</option>
+                </select>
+                <span asp-validation-for="Plane" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Sauvegarder" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="FlightList">Retour à la liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
