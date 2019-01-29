@@ -36,7 +36,7 @@ namespace FlightTracker.Service
         {
             ResultDTO result = new ResultDTO();
             result.IsValid = false;
-            result.Msg = "Erreur!";
+            result.Msg = "Echec de la suppression!";
 
 
             var flight = await _context.Flight.SingleOrDefaultAsync(a => a.Id == flightId);
@@ -58,6 +58,12 @@ namespace FlightTracker.Service
             ResultDTO result = new ResultDTO();
             result.IsValid = false;
             result.Msg = "Erreur!";
+
+            if (flight.Destination == flight.Origin) {
+                result.Msg = "La provenance doit être différente de la destination";
+                return result;
+            }
+
 
             int id = 0;
             if (flight.Id == 0 || string.IsNullOrEmpty(flight.Id.ToString()))

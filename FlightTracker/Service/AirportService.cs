@@ -36,7 +36,7 @@ namespace FlightTracker.Service
         {
             ResultDTO result = new ResultDTO();
             result.IsValid = false;
-            result.Msg = "Erreur!";
+            result.Msg = "Echec de la suppression!";
 
 
             var airport = await _context.Airport.SingleOrDefaultAsync(a => a.Id == airportId);

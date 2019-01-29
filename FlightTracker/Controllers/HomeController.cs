@@ -84,6 +84,8 @@ namespace FlightTracker.Controllers
                     return RedirectToAction(nameof(Index));
 
             }
+            ViewBag.AirportList = await airportService.AirportsList();
+            ViewBag.PlaneList = await planeService.PlanesList();
             return View(flight);
 
         }
@@ -105,12 +107,13 @@ namespace FlightTracker.Controllers
             {
 
                 ResultDTO resultDTO = await flightService.SaveFlight(flight);
-
                 ViewData["Message"] = resultDTO.Msg;
 
                 if (resultDTO.IsValid)
                     return RedirectToAction(nameof(Index));
             }
+            ViewBag.AirportList = await airportService.AirportsList();
+            ViewBag.PlaneList = await planeService.PlanesList();
             return View(flight);
         }
 
